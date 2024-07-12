@@ -1,0 +1,29 @@
+@import '/src/index.scss';
+
+.btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: em(8);
+   color: $Neutral7;
+   font-weight: 500;
+   padding: em(10) em(40);
+   border-radius: em(8);
+   border: em(1) solid $Neutral7;
+   transition: $transition;
+   cursor: pointer;
+
+   &._roundedFull {
+      border-radius: em(80);
+   }
+
+   &:hover {
+      background-color: $Neutral7;
+      color: $white;
+   }
+
+   @media screen and (max-width:$xl) {
+      background-color: $Neutral7;
+      color: $white;
+   }
+}

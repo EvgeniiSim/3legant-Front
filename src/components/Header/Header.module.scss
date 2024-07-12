@@ -1,0 +1,88 @@
+@import '/src/index.scss';
+
+
+.header {
+
+   &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: em(60);
+   }
+
+   &__logo {
+      font-size: em(24);
+      font-weight: 500;
+      color: #000;
+
+      @media screen and (max-width:$md) {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: em(11);
+         font-size: em(22);
+      }
+
+      &>img {
+         width: em(15);
+         cursor: pointer;
+      }
+   }
+
+   &__nav {
+
+      &>ul {
+         display: flex;
+         align-items: center;
+         gap: em(40);
+
+      }
+
+      & a {
+         font-family: $SpaceGrotesk;
+         font-size: em(14);
+         color: $Neutral4;
+         transition: $transition;
+
+         &._active,
+         &:hover {
+            color: $Neutral7;
+         }
+      }
+   }
+
+   &__buttons {
+      display: flex;
+      align-items: center;
+      gap: em(18);
+
+      &>* {
+         cursor: pointer;
+      }
+
+      & img {
+         width: em(22);
+         height: em(22);
+      }
+
+      &_bag {
+         display: flex;
+         align-items: center;
+         gap: em(8);
+
+         &>span {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: em(20, 12);
+            height: em(20, 12);
+            border-radius: 100%;
+            background: $Neutral7;
+            color: $white;
+            font-size: em(12);
+            font-weight: 500;
+         }
+      }
+   }
+}

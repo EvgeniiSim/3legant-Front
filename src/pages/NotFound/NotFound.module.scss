@@ -1,0 +1,25 @@
+@import '/src/index.scss';
+
+.wrap {
+   display: flex;
+   flex-direction: column;
+   gap: em(10);
+   align-items: center;
+   justify-content: center;
+   height: 100dvh;
+   text-align: center;
+}
+
+strong {
+   font-size: $Headline1;
+   font-weight: 500;
+
+   &>span {
+      font-size: 1.2em;
+      color: $green;
+   }
+}
+
+small {
+   font-size: $Headline5;
+}

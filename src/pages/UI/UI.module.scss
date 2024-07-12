@@ -1,0 +1,11 @@
+@import '/src/index.scss';
+
+.wrapper {
+   padding: rem(30);
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   align-items: start;
+   gap: em(20);
+   background-color: rgb(227, 227, 227);
+   min-height: 100vh;
+}

@@ -1,0 +1,50 @@
+///// Font-Family variebals
+$Inter: "Inter", sans-serif;
+$Poppins: 'Poppins', sans-serif;
+$SpaceGrotesk: "Space Grotesk", sans-serif;
+
+///// Font-Size variebals
+$hero: em(96);
+$Headline1: em(80);
+$Headline2: em(72);
+$Headline3: em(54);
+$Headline4: em(40);
+$Headline5: em(34);
+$Headline6: em(28);
+$Headline7: em(20);
+$Body1: em(20);
+$Body2: em(16);
+$Caption1: em(14);
+$Caption2: em(12);
+$Hairline1: em(16);
+$Hairline2: em(12);
+$ButtonXL: em(26);
+$ButtonL: em(22);
+$ButtonM: em(18);
+$ButtonS: em(16);
+$ButtonXS: em(14);
+
+///// Colors variebals
+$black: #000000;
+$white: #fff;
+$blue: #377DFF;
+$green: #38CB89;
+$yellow: #FFAB00;
+$red: #FF5630;
+$Neutral7: #141718;
+$Neutral6: #232627;
+$Neutral5: #343839;
+$Neutral4: #6C7275;
+$Neutral3: #E8ECEF;
+$Neutral2: #F3F5F7;
+$Neutral1: #FEFEFE;
+
+
+////// Breakpoints variebals
+$xl: em(991);
+$md: em(768);
+$sm: em(576);
+$x-sm: em(420);
+
+////// Transition variebals
+$transition: all 0.3s ease-in-out;

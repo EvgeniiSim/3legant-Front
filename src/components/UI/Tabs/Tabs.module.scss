@@ -1,0 +1,57 @@
+@import '/src/index.scss';
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: em(48);
+
+   @media screen and (max-width:$md) {
+      gap: em(20);
+   }
+}
+
+.tabs {
+   display: flex;
+   align-items: end;
+   gap: em(80);
+   border-bottom: em(1) solid #807e7e3f;
+}
+
+.tab {
+   position: relative;
+   text-align: center;
+   font-size: $ButtonM;
+   font-weight: 500;
+   color: #807e7e;
+   line-height: 1.3;
+   transition: $transition;
+   cursor: pointer;
+
+   &::after {
+      content: '';
+      position: absolute;
+      bottom: em(-0.8);
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      height: em(1);
+      background-color: #121212;
+      transition: $transition;
+   }
+
+   &._active {
+      color: #121212;
+   }
+
+   &._active::after {
+      opacity: 1;
+   }
+}
+
+.body {
+   display: none;
+
+   &._open {
+      display: block;
+   }
+}

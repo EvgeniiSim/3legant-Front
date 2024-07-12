@@ -1,0 +1,9 @@
+@import '/src/index.scss';
+
+.advantages {
+   margin-bottom: em(48);
+
+   @media screen and (max-width:$sm) {
+      margin-bottom: em(20);
+   }
+}

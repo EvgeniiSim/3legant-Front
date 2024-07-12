@@ -1,0 +1,39 @@
+@import '/src/index.scss';
+
+.dropdown {
+   border-bottom: em(1) solid $Neutral7;
+   padding-bottom: em(8);
+
+   &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 500;
+      cursor: pointer;
+
+      &>img {
+         transform: rotate(180deg);
+         transition: $transition;
+      }
+   }
+
+   &._open &__header {
+      &>img {
+         transform: rotate(0);
+      }
+   }
+
+   &__body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: $transition;
+
+      &>div {
+         overflow: hidden;
+      }
+   }
+
+   &._open &__body {
+      grid-template-rows: 1fr;
+   }
+}

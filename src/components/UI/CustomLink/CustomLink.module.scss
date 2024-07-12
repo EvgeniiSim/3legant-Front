@@ -1,0 +1,16 @@
+@import '/src/index.scss';
+
+.link {
+   width: fit-content;
+   display: inline-flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: em(4);
+   font-weight: 500;
+   border-bottom: em(1) solid $Neutral7;
+   transition: $transition;
+
+   &:hover {
+      gap: em(10);
+   }
+}

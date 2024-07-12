@@ -1,0 +1,54 @@
+@import '/src/index.scss';
+
+.wrap {
+   display: flex;
+   min-height: 100dvh;
+
+   &__pic,
+   &__form {
+      flex: 1 1 50%;
+   }
+
+   &__pic {
+      &>img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   &__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: em(88);
+      padding-right: em(160);
+      height: 100dvh;
+   }
+}
+
+.title {
+   font-size: $Headline4;
+   font-weight: 500;
+   color: $Neutral7;
+   margin-bottom: em(24, 40);
+}
+
+.subtitle {
+   display: block;
+   font-size: $Body2;
+   color: $Neutral4;
+   margin-bottom: em(32,16);
+
+   &>a {
+      color: $green;
+      font-weight: 500;
+   }
+}
+
+.inputs {
+   display: flex;
+   flex-direction: column;
+   gap: em(32);
+   margin-bottom: em(33);
+}

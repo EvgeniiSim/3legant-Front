@@ -1,0 +1,116 @@
+@import '/src/index.scss';
+
+.footer {
+   background-color: $Neutral7;
+   color: $white;
+
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      gap: em(50);
+      padding-top: em(80);
+      padding-bottom: em(32);
+
+      @media screen and (max-width:$md) {
+         padding: em(40) 0;
+         gap: em(40);
+      }
+   }
+
+   &__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: em(20);
+
+      @media screen and (max-width:$md) {
+         flex-direction: column;
+         gap: em(40);
+      }
+   }
+
+   &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: em(16);
+      gap: em(30);
+      border-top: em(0.5) solid $Neutral4;
+
+      @media screen and (max-width:$md) {
+         flex-direction: column-reverse;
+      }
+   }
+}
+
+.top {
+
+   &__logo {
+      display: flex;
+      align-items: center;
+      gap: em(32);
+      color: $Neutral3;
+
+      @media screen and (max-width:$md) {
+         flex-direction: column;
+         gap: em(15);
+      }
+
+      &>a {
+         font-size: em(24);
+         font-weight: 500;
+      }
+
+      &>span {
+         color: $Neutral4;
+      }
+
+   }
+
+   &__nav {
+      &>ul {
+         display: flex;
+         align-items: center;
+         gap: em(40);
+
+         @media screen and (max-width:$md) {
+            flex-direction: column;
+            gap: em(32);
+         }
+      }
+
+      & a {
+         transition: $transition;
+
+         &:hover {
+            opacity: 0.7;
+         }
+      }
+   }
+}
+
+.bottom {
+
+   &__privacy {
+      display: flex;
+      align-items: center;
+      gap: em(28, 12);
+      font-size: em(12);
+
+      @media screen and (max-width:$md) {
+         flex-wrap: wrap;
+         justify-content: center;
+      }
+
+      & a {
+         font-weight: 500;
+      }
+   }
+
+   &__social {
+      display: flex;
+      align-items: center;
+      gap: em(26);
+   }
+
+}

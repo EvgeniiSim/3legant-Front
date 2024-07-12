@@ -1,0 +1,90 @@
+@import '/src/index.scss';
+
+.selectWrap {
+   position: relative;
+   min-height: em(48);
+
+}
+
+.select {
+   position: absolute;
+   z-index: 10;
+   top: 0;
+   left: 0;
+   width: 100%;
+   border: em(2) solid #6C7275;
+   border-radius: rem(8);
+   color: $Neutral7;
+   font-size: $Body2;
+   font-weight: 700;
+   min-height: em(48);
+   overflow: hidden;
+   transition: $transition;
+
+   &._active {
+      background-color: $white;
+      border: rem(1.5) solid $Neutral2;
+
+   }
+
+   &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: em(15);
+      padding: em(14) em(16);
+      cursor: pointer;
+   }
+
+   &>span {
+      flex-grow: 1;
+   }
+
+   &__arrow {
+      flex-shrink: 0;
+      transition: all 0.4s ease;
+
+      &_active {
+         rotate: 180deg;
+      }
+   }
+}
+
+.list {
+   display: flex;
+   flex-direction: column;
+   gap: em(10);
+   overflow: hidden;
+   text-align: left;
+   transition: $transition;
+
+   &Wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+      padding-left: em(8);
+      padding-right: em(8);
+      transition: $transition;
+
+      &_active {
+         padding-top: em(8);
+         padding-bottom: em(8);
+         grid-template-rows: 1fr;
+      }
+   }
+
+   &__item {
+      color: $Neutral4;
+      font-weight: 400;
+      padding: em(14) em(16);
+      border-radius: rem(8);
+      transition: $transition;
+      cursor: pointer;
+
+      &:hover {
+         font-weight: 700;
+         color: $Neutral7;
+         background-color: $Neutral2;
+      }
+   }
+}

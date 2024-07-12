@@ -1,0 +1,14 @@
+@import '/src/index.scss';
+
+.wrap {
+   padding-bottom: em(14);
+   border-bottom: em(1) solid $Neutral4;
+
+}
+
+.input {
+   font-size: $Body2;
+   background-color: transparent;
+   line-height: 1.2;
+   width: 100%;
+}

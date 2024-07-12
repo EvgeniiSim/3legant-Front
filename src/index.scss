@@ -1,0 +1,39 @@
+@import './scss/mixins.scss';
+@import "./scss/null.scss";
+@import "./scss/variebals";
+@import "./scss/swiper.scss";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+   font-family: $Inter;
+   font-size: clamp(1rem, -0.167rem + 1.33vw, 1.5rem);
+   font-weight: 400;
+   color: $Neutral7;
+   transition: $transition;
+
+   &._lock {
+      overflow: hidden;
+   }
+}
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+.container {
+   width: 100%;
+   position: relative;
+   max-width: em(1120);
+   padding: 0 em(15);
+   margin: 0 auto;
+}
+
+.main {
+   flex-grow: 1;
+}

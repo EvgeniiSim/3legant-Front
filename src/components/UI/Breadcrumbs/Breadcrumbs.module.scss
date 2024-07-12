@@ -1,0 +1,28 @@
+@import '/src/index.scss';
+
+.breadcrumbs {
+   margin-bottom: em(20);
+}
+
+.crumb {
+   text-transform: uppercase;
+   margin-right: em(5);
+
+   &>a {
+      display: inline-flex;
+      align-items: center;
+      gap: em(5);
+
+      &::after {
+         content: '/';
+      }
+   }
+
+   &:last-child {
+      &>a {
+         &::after {
+            display: none;
+         }
+      }
+   }
+}

@@ -1,0 +1,51 @@
+@import '/src/index.scss';
+
+.advantages {
+
+   &__inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(em(220), 1fr));
+      gap: em(24);
+
+      @media screen and (max-width:$sm) {
+         grid-template-columns: repeat(2, 1fr);
+         gap: em(10);
+      }
+   }
+
+   &__card {
+      background-color: $Neutral2;
+      padding: em(55) em(32) em(48) em(32);
+
+      @media screen and (max-width:$sm) {
+         padding: em(32) em(16);
+      }
+
+      &>img {
+         display: block;
+         margin-bottom: em(22);
+         height: em(40);
+      }
+
+      &>b {
+         display: block;
+         font-size: $Headline7;
+         font-weight: 600;
+         color: $Neutral7;
+         margin-bottom: em(8);
+
+         @media screen and (max-width:$sm) {
+            font-size: $Caption1;
+         }
+      }
+
+      &>small {
+         font-size: em(14);
+         color: $Neutral4;
+
+         @media screen and (max-width:$sm) {
+            font-size: $Caption1;
+         }
+      }
+   }
+}

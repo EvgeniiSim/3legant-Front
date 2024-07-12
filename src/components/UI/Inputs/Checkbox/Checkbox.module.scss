@@ -1,0 +1,39 @@
+@import '/src/index.scss';
+
+.checkbox {
+
+   display: flex;
+   align-items: center;
+   gap: em(12);
+
+   &__input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+   }
+
+   &__label {
+      position: relative;
+      width: em(24);
+      height: em(24);
+      border: em(1.5) solid $Neutral4;
+      background-color: #FCFCFD;
+      border-radius: em(4);
+      transition: $transition;
+
+      &._active {
+         background-color: $Neutral7;
+         border-color: $Neutral7 ;
+      }
+
+      &>img {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: em(12);
+      }
+   }
+}

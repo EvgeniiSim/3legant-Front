@@ -1,0 +1,16 @@
+@import '/src/index.scss';
+
+.counter {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: em(5);
+   padding: em(12) em(16);
+   background-color: #F5F5F5;
+   border-radius: rem(8);
+
+   &__minus,
+   &__plus {
+      cursor: pointer;
+   }
+}

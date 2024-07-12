@@ -1,0 +1,146 @@
+@import '/src/index.scss';
+
+.wrapper {
+   position: fixed;
+   z-index: 100;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   visibility: hidden;
+   transition: $transition;
+
+   &._open {
+      background-color: #adadada2;
+      visibility: visible;
+   }
+}
+
+.menu {
+   position: absolute;
+   z-index: 10;
+   top: 0;
+   left: -100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   gap: em(30);
+   width: 90vw;
+   height: 100vh;
+   overflow: auto;
+   background-color: $white;
+   padding: em(24);
+   transition: $transition;
+
+   ._open & {
+      left: 0;
+   }
+
+   &__top {
+      display: flex;
+      flex-direction: column;
+      gap: em(16);
+   }
+
+   &__bottom {
+      display: flex;
+      flex-direction: column;
+      gap: em(16);
+   }
+
+}
+
+.top {
+
+   &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &>a {
+         font-size: em(20);
+         font-weight: 500;
+      }
+   }
+
+   &__search {
+
+      &Wrapper {
+         display: flex;
+         align-items: center;
+         gap: em(10);
+         padding: em(11) em(16);
+         border: em(1) solid $Neutral7;
+         border-radius: em(6);
+
+         &>img {
+            flex-shrink: 0;
+         }
+
+         &>input {
+            color: $Neutral7;
+         }
+      }
+   }
+
+   &__nav {
+      &>ul {
+         display: flex;
+         flex-direction: column;
+         gap: em(16);
+
+         & a {
+            display: block;
+            font-size: $ButtonXS;
+            font-weight: 500;
+            border-bottom: em(1) solid $Neutral3;
+            padding-bottom: em(16);
+         }
+      }
+   }
+
+}
+
+.bottom {
+   &__productsList {
+      display: flex;
+      flex-direction: column;
+      gap: em(16);
+   }
+
+   &__productsItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: $ButtonXS;
+      font-weight: 500;
+      border-bottom: em(1) solid $Neutral3;
+      padding-bottom: em(16);
+   }
+
+   &__productsIcon {
+      display: flex;
+      align-items: center;
+      gap: em(8);
+
+      &>span {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-shrink: 0;
+         width: em(23, 14);
+         height: em(23, 14);
+         font-size: em(14);
+         font-weight: 700;
+         color: $white;
+         background-color: $Neutral7;
+         border-radius: 100%;
+      }
+   }
+
+   &__social {
+      display: flex;
+      align-items: center;
+      gap: em(26)
+   }
+}

@@ -1,0 +1,32 @@
+@import '/src/index.scss';
+
+
+.products {
+   overflow: hidden;
+
+   &__inner {
+      margin-bottom: em(48);
+   }
+
+   &__header {
+      margin-bottom: em(30);
+   }
+
+   &__swiper {
+      overflow: visible;
+
+      &Drag {
+         height: 100%;
+         width: 100%;
+         position: relative;
+         background: #343839;
+         border-radius: em(10);
+         left: 0;
+         top: 0;
+      }
+   }
+
+   &__product {
+      height: em(443);
+   }
+}

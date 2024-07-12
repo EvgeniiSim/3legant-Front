@@ -1,0 +1,23 @@
+.swiper-pagination {
+   position: absolute;
+   z-index: 10;
+   bottom: 5%;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   align-items: center;
+   gap: em(16);
+}
+
+.swiper-pagination-bullet {
+   display: block;
+   width: em(8);
+   height: em(8);
+   border-radius: em(8);
+   background-color: $white;
+   transition: $transition;
+}
+
+.swiper-pagination-bullet-active {
+   width: em(30);
+}

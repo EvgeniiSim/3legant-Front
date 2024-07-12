@@ -1,0 +1,30 @@
+@import '/src/index.scss';
+
+.buttons {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: em(20);
+}
+
+.button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: em(52);
+   height: em(52);
+   border-radius: 100%;
+   background-color: $white;
+   cursor: pointer;
+
+   & img {
+      width: em(32);
+      object-fit: contain;
+   }
+
+   &._next {
+      &>img {
+         transform: rotate(180deg);
+      }
+   }
+}
