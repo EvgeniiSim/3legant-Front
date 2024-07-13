@@ -1,21 +1,46 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
-export const useOutsideClick = (callback: () => void) => {
-   const ref = useRef<HTMLDivElement>(null);
+interface refProps {
+   current: HTMLDivElement | null;
+}
+
+const useOutsideClick = (
+   ref: refProps,
+   callback: () => void,
+   selectors?: string[]
+) => {
+   const handleClick = (e: Event) => {
+      let canProceed = true;
+
+      const target = e.target as HTMLElement;
+
+      if (selectors && selectors.length > 0) {
+         for (let i = 0; i < selectors.length; i++) {
+            const selector = selectors[i];
+
+            if (target.closest(selector)) {
+               canProceed = false;
+            }
+         }
+      }
+
+      if (
+         ref &&
+         ref.current &&
+         !ref.current.contains(e.target as HTMLDivElement) &&
+         canProceed
+      ) {
+         callback();
+      }
+   };
 
    useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
-         if (ref.current && !ref.current.contains(event.target as Node)) {
-            callback();
-         }
-      };
-
-      document.addEventListener("click", handleClickOutside);
+      document.addEventListener("click", handleClick);
 
       return () => {
-         document.removeEventListener("click", handleClickOutside);
+         document.removeEventListener("click", handleClick);
       };
-   }, [callback]);
-
-   return ref;
+   }, [selectors]);
 };
+
+export default useOutsideClick;

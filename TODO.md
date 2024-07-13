@@ -3,3 +3,4 @@
 3. [] Deploy
 4. [] CI/CD
 5. [] Docker
+6. [] Persist login

@@ -1,4 +1,4 @@
-import { ChangeEvent, LegacyRef } from "react";
+import { ChangeEvent } from "react";
 
 import styles from "./Text.module.scss";
 
@@ -6,11 +6,19 @@ export interface TextProps {
    placeholder: string;
    value: string;
    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-   ref?: LegacyRef<HTMLInputElement>;
+   isError?: boolean;
+   errorText?: string;
    autoFocus?: boolean;
 }
 
-const Text = ({ placeholder, value, onChange, ref, autoFocus }: TextProps) => {
+const Text = ({
+   placeholder,
+   value,
+   onChange,
+   autoFocus,
+   isError = false,
+   errorText = "",
+}: TextProps) => {
    return (
       <div className={styles.wrap}>
          <input
@@ -18,9 +26,9 @@ const Text = ({ placeholder, value, onChange, ref, autoFocus }: TextProps) => {
             value={value}
             onChange={onChange}
             className={styles.input}
-            ref={ref}
             placeholder={placeholder}
          />
+         {isError && <span className={styles.input__error}>{errorText}</span>}
       </div>
    );
 };

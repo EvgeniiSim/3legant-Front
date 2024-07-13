@@ -4,6 +4,6 @@ export interface SignUpRequest {
    password: string;
 }
 export interface SignInRequest {
-   username: string;
+   email: string;
    password: string;
 }

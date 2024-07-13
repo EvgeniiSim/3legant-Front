@@ -17,7 +17,12 @@
       border-radius: em(80);
    }
 
-   &:hover {
+   &._disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+   }
+
+   &:not(._disabled):hover {
       background-color: $Neutral7;
       color: $white;
    }

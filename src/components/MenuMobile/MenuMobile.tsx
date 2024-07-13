@@ -1,33 +1,26 @@
-import { Dispatch } from "react";
+import { Dispatch, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 import classNames from "classnames/bind";
 import classes from "./MenuMobile.module.scss";
 const cx = classNames.bind(classes);
 
 import Button from "../UI/Button/Button";
+import useOutsideClick from "../../hooks/useOutsideClick";
+import { useAppSelector } from "../../hooks/reduxHooks";
+import { Paths } from "../../config/paths";
 
 interface MenuMobileProps {
    open: boolean;
    setOpen: Dispatch<React.SetStateAction<boolean>>;
-   canClose: boolean;
-   setCanClose: Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MenuMobile = ({
-   open,
-   setOpen,
-   canClose,
-   setCanClose,
-}: MenuMobileProps) => {
-   const ref = useOutsideClick(() => {
-      if (canClose) {
-         setOpen(false);
-         setCanClose(false);
-      }
-   });
+const MenuMobile = ({ open, setOpen }: MenuMobileProps) => {
+   const isUnauthorized = useAppSelector((state) => state.auth.isUnauthorized);
+
+   const ref = useRef(null);
+   useOutsideClick(ref, () => setOpen(false), ["#menu"]);
+
    const navigate = useNavigate();
 
    const wrapperClasses = cx({
@@ -46,7 +39,6 @@ const MenuMobile = ({
                      alt="Закрыть меню"
                      onClick={() => {
                         setOpen(false);
-                        setCanClose(false);
                      }}
                   />
                </div>
@@ -71,33 +63,38 @@ const MenuMobile = ({
                </nav>
             </div>
             <div className={classes.menu__bottom}>
-               <ul className={classes.bottom__productsList}>
-                  <li>
-                     <Link
-                        to={"basket"}
-                        className={classes.bottom__productsItem}>
-                        Cart
-                        <div className={classes.bottom__productsIcon}>
-                           <img src="icons/bag.svg" alt="Корзина" />
-                           <span>2</span>
-                        </div>
-                     </Link>
-                  </li>
-                  <li>
-                     <Link
-                        to={"favorites"}
-                        className={classes.bottom__productsItem}>
-                        Wishlist
-                        <div className={classes.bottom__productsIcon}>
-                           <img src="icons/unliked.svg" alt="Избранные" />
-                           <span>2</span>
-                        </div>
-                     </Link>
-                  </li>
-               </ul>
+               {!isUnauthorized && (
+                  <ul className={classes.bottom__productsList}>
+                     <li>
+                        <Link
+                           to={"basket"}
+                           className={classes.bottom__productsItem}>
+                           Cart
+                           <div className={classes.bottom__productsIcon}>
+                              <img src="icons/bag.svg" alt="Корзина" />
+                              <span>2</span>
+                           </div>
+                        </Link>
+                     </li>
+                     <li>
+                        <Link
+                           to={"favorites"}
+                           className={classes.bottom__productsItem}>
+                           Wishlist
+                           <div className={classes.bottom__productsIcon}>
+                              <img src="icons/unliked.svg" alt="Избранные" />
+                              <span>2</span>
+                           </div>
+                        </Link>
+                     </li>
+                  </ul>
+               )}
                <Button
                   raduis="sm"
-                  onClick={() => navigate("/signIn")}
+                  onClick={() => {
+                     setOpen(false);
+                     navigate(Paths.SIGNIN);
+                  }}
                   className={classes.bottom__button}>
                   Sign In
                </Button>

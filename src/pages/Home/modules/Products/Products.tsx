@@ -16,7 +16,7 @@ import "swiper/css/scrollbar";
 
 const Products = () => {
    const { data } = useGetProductsQuery(
-      { limit: 5, page: 1 },
+      { limit: undefined, page: undefined },
       {
          refetchOnReconnect: true,
       }

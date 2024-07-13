@@ -13,15 +13,36 @@ interface InputsTypes {
 }
 
 const Input: InputsTypes = {
-   Text: ({ placeholder, onChange, value }) => (
-      <Text placeholder={placeholder} value={value} onChange={onChange} />
+   Text: ({ placeholder, onChange, value, isError, errorText, autoFocus }) => (
+      <Text
+         placeholder={placeholder}
+         value={value}
+         autoFocus={autoFocus}
+         onChange={onChange}
+         isError={isError}
+         errorText={errorText}
+      />
    ),
-   Password: ({ placeholder, value, onChange }) => (
-      <Password placeholder={placeholder} value={value} onChange={onChange} />
+   Password: ({
+      placeholder,
+      value,
+      onChange,
+      isError,
+      errorText,
+      autoFocus,
+   }) => (
+      <Password
+         placeholder={placeholder}
+         value={value}
+         autoFocus={autoFocus}
+         onChange={onChange}
+         isError={isError}
+         errorText={errorText}
+      />
    ),
    Radio: ({ name, value, id }) => <Radio name={name} value={value} id={id} />,
-   Checkbox: ({ children, id, name }) => (
-      <Checkbox name={name} id={id}>
+   Checkbox: ({ children, id, name, checked, setChecked }) => (
+      <Checkbox checked={checked} setChecked={setChecked} name={name} id={id}>
          {children}
       </Checkbox>
    ),

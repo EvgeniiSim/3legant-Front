@@ -1,6 +1,5 @@
 @import '/src/index.scss';
 
-
 .header {
 
    &__inner {
@@ -83,6 +82,38 @@
             font-size: em(12);
             font-weight: 500;
          }
+      }
+
+      &_profile {
+         position: relative;
+      }
+
+      &_profile-popup {
+         position: absolute;
+         z-index: 10;
+         top: 120%;
+         right: 0;
+         width: em(300);
+
+         padding: em(10);
+         border-radius: em(10);
+         background-color: #fff;
+         box-shadow: 0 0 em(1.5) #000;
+
+         opacity: 0;
+         visibility: hidden;
+         transition: all 0.3s ease-in-out;
+
+         cursor: default;
+
+         a {
+            color: $green;
+         }
+      }
+
+      &_profile:hover &_profile-popup {
+         opacity: 1;
+         visibility: visible;
       }
    }
 }

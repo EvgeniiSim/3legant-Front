@@ -1,6 +1,7 @@
 @import '/src/index.scss';
 
 .wrap {
+   position: relative;
    padding-bottom: em(14);
    border-bottom: em(1) solid $Neutral4;
 
@@ -11,4 +12,14 @@
    background-color: transparent;
    line-height: 1.2;
    width: 100%;
+
+   &__error {
+      position: absolute;
+      bottom: -62%;
+      left: 0;
+
+      font-size: clamp(0.625rem, 0.321rem + 0.63vw, 0.875rem);
+      color: $red;
+      text-wrap: nowrap;
+   }
 }

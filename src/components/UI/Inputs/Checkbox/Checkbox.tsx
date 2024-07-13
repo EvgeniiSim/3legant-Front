@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { Dispatch, ReactNode } from "react";
 
 import check from "../../../../../public/icons/inputs/check.svg";
 
@@ -10,11 +10,17 @@ export interface CheckboxProps {
    name: string;
    id: string;
    children: ReactNode;
+   checked: boolean;
+   setChecked: Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Checkbox = ({ name, id, children }: CheckboxProps) => {
-   const [checked, setChecked] = useState(false);
-
+const Checkbox = ({
+   name,
+   id,
+   children,
+   checked,
+   setChecked,
+}: CheckboxProps) => {
    const labelClasses = cx({
       checkbox__label: true,
       _active: checked,

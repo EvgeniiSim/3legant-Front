@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import classes from "./Breadcrumbs.module.scss";
 
+// FIXME: Некорректно отображает UI
 const Breadcrumbs = () => {
    const location = useLocation();
 

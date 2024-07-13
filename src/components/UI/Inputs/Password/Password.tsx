@@ -1,4 +1,4 @@
-import { ChangeEvent, LegacyRef, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 import showPwdIcon from "../../../../../public/icons/inputs/showPwd.svg";
 
@@ -8,16 +8,18 @@ export interface PasswordProps {
    placeholder: string;
    value: string;
    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-   ref?: LegacyRef<HTMLInputElement>;
    autoFocus?: boolean;
+   isError?: boolean;
+   errorText?: string;
 }
 
 const Password = ({
    placeholder,
    value,
    onChange,
-   ref,
    autoFocus,
+   isError = false,
+   errorText = "",
 }: PasswordProps) => {
    const [showPwd, setShowPwd] = useState(false);
    return (
@@ -26,7 +28,6 @@ const Password = ({
             className={styles.input}
             autoFocus={autoFocus}
             value={value}
-            ref={ref}
             onChange={onChange}
             type={showPwd ? "text" : "password"}
             placeholder={placeholder}
@@ -37,6 +38,7 @@ const Password = ({
             {showPwd && <span></span>}
             <img src={showPwdIcon} alt="Показать/Скрыть" />
          </div>
+         {isError && <span className={styles.input__error}>{errorText}</span>}
       </div>
    );
 };

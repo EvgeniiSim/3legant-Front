@@ -1,9 +1,9 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 
 import styles from "./Select.module.scss";
 import classNames from "classnames/bind.js";
 
-import { useOutsideClick } from "../../../hooks/useOutsideClick";
+import useOutsideClick from "../../../hooks/useOutsideClick";
 
 interface SelectProps {
    children: string;
@@ -17,7 +17,8 @@ const data = ["Вокалист", "Клавишные", "Барабаны", "Г�
 
 const Select = ({ children, open, setOpen, error, setError }: SelectProps) => {
    const [selectedValue, setSelectedValue] = useState<string | null>(null);
-   const selectRef = useOutsideClick(() => setOpen(false));
+   const selectRef = useRef(null);
+   useOutsideClick(selectRef, () => setOpen(false));
 
    // Определяем и классы интерактива
    const cx = classNames.bind(styles);

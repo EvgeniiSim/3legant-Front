@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import classes from "./Header.module.scss";
 import useWindowSize from "../../hooks/useWindowSize";
+import { useAppSelector } from "../../hooks/reduxHooks";
+
+import classes from "./Header.module.scss";
 import MenuMobile from "../MenuMobile/MenuMobile";
+import Profile from "./modules/Profile";
 
 const Header = () => {
+   const isUnauthorized = useAppSelector((state) => state.auth.isUnauthorized);
    const { width } = useWindowSize();
    const [open, setOpen] = useState(false);
-   const [canClose, setCanClose] = useState(false);
 
    const isTablet = width < 768;
 
@@ -18,15 +21,6 @@ const Header = () => {
       document.body.classList.remove("_lock");
    }
 
-   // Разрешаем закрывать menu по outsideClike только через задержку,
-   // чтобы оно не закрывалось не успев открыться
-   useEffect(() => {
-      if (open) {
-         setTimeout(() => {
-            setCanClose(true);
-         }, 500);
-      }
-   }, [open]);
    return (
       <div className={classes.header}>
          <div className="container">
@@ -37,6 +31,7 @@ const Header = () => {
                         <img
                            src="icons/burger.svg"
                            alt="Меню"
+                           id="menu"
                            onClick={() => setOpen(true)}
                         />
                         <Link to="/">3legant.</Link>
@@ -66,24 +61,17 @@ const Header = () => {
                         <img src="icons/search.svg" alt="Поиск" />
                      </div>
                   )}
-                  <div className={classes.header__buttons_profile}>
-                     <img src="icons/user.svg" alt="Профиль" />
-                  </div>
-                  <div className={classes.header__buttons_bag}>
-                     <img src="icons/bag.svg" alt="Корзина" />
-                     <span>2</span>
-                  </div>
+                  <Profile />
+                  {!isUnauthorized && (
+                     <div className={classes.header__buttons_bag}>
+                        <img src="icons/bag.svg" alt="Корзина" />
+                        <span>2</span>
+                     </div>
+                  )}
                </div>
             </div>
          </div>
-         {isTablet ? (
-            <MenuMobile
-               open={open}
-               canClose={canClose}
-               setCanClose={setCanClose}
-               setOpen={setOpen}
-            />
-         ) : null}
+         {isTablet ? <MenuMobile open={open} setOpen={setOpen} /> : null}
       </div>
    );
 };

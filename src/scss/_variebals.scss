@@ -1,9 +1,9 @@
-///// Font-Family variebals
+// Font-Family variebals
 $Inter: "Inter", sans-serif;
 $Poppins: 'Poppins', sans-serif;
 $SpaceGrotesk: "Space Grotesk", sans-serif;
 
-///// Font-Size variebals
+// Font-Size variebals
 $hero: em(96);
 $Headline1: em(80);
 $Headline2: em(72);
@@ -24,7 +24,7 @@ $ButtonM: em(18);
 $ButtonS: em(16);
 $ButtonXS: em(14);
 
-///// Colors variebals
+// Colors variebals
 $black: #000000;
 $white: #fff;
 $blue: #377DFF;
@@ -39,12 +39,11 @@ $Neutral3: #E8ECEF;
 $Neutral2: #F3F5F7;
 $Neutral1: #FEFEFE;
 
-
-////// Breakpoints variebals
+// Breakpoints variebals
 $xl: em(991);
 $md: em(768);
 $sm: em(576);
 $x-sm: em(420);
 
-////// Transition variebals
+// Transition variebals
 $transition: all 0.3s ease-in-out;

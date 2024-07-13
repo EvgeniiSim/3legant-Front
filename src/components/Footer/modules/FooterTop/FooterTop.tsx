@@ -16,7 +16,7 @@ const FooterTop = () => {
                   id="footer-email-signup"
                />
                <img src="icons/mail.svg" alt="Signup" />
-               <button>Signup</button>
+               <button>Sign up</button>
             </div>
          </div>
          <img

@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ReactNode } from "react";
-import { Keyboard, Pagination } from "swiper/modules";
+import { Keyboard, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import SwiperButtons from "../../../../components/UI/SwiperButtons/SwiperButtons";
@@ -20,10 +20,11 @@ const Primary = () => {
             <div className={classes.primary__inner}>
                <div className={classes.swiper}>
                   <Swiper
-                     modules={[Pagination, Keyboard]}
+                     modules={[Pagination, Keyboard, Autoplay]}
                      spaceBetween={50}
                      slidesPerView={1}
                      loop
+                     autoplay
                      pagination={pagination}
                      keyboard>
                      <SwiperSlide className={classes.swiper__slide}>

@@ -15,6 +15,7 @@ const UI = () => {
    const [selectOpen, setSelectOpen] = useState(false);
    const [dropdownOpen, setDropdownOpen] = useState(false);
    const [currentTab, setCurrentTab] = useState("Additional Info");
+   const [checked, setChecked] = useState(false);
 
    let tabsContent;
 
@@ -64,7 +65,11 @@ const UI = () => {
          </Tabs>
          <Breadcrumbs />
          <Input.Radio name={"name"} value={"value"} id={"radio-test"} />
-         <Input.Checkbox name={"name"} id={"checkbox-test"}>
+         <Input.Checkbox
+            checked={checked}
+            setChecked={setChecked}
+            name={"name"}
+            id={"checkbox-test"}>
             value
          </Input.Checkbox>
          <Input.Text

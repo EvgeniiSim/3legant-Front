@@ -2,9 +2,11 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Breadcrumbs from "../UI/Breadcrumbs/Breadcrumbs";
-import { Suspense } from "react";
+import Loader from "../Loader/Loader";
+import { useAppSelector } from "../../hooks/reduxHooks";
 
-const Layout = () => {
+const MainLayout = () => {
+   const isLoading = useAppSelector((state) => state.loader.isActive);
    return (
       <div className="wrapper">
          <Header />
@@ -12,13 +14,14 @@ const Layout = () => {
             <Breadcrumbs />
          </div>
          <main className="main">
-            <Suspense fallback={<p>Loading...</p>}>
-               <Outlet />
-            </Suspense>
+            <Outlet />
          </main>
          <Footer />
+
+         {/* Влючается через redux state */}
+         {isLoading && <Loader />}
       </div>
    );
 };
 
-export default Layout;
+export default MainLayout;
