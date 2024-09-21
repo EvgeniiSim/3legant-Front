@@ -13,7 +13,7 @@ const Breadcrumbs = () => {
       currentLink = "/";
       crumbs = (
          <img
-            src="icons/home.svg"
+            src="/icons/home.svg"
             width={24}
             height={24}
             alt="На главную страницу"

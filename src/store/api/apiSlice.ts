@@ -5,8 +5,9 @@ import {
    createApi,
    fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
+
 import { RootState } from "../store";
-import { API_URL } from "../../config/app";
+import { API_URL } from "../../config/constants/index";
 import { logOut, setCredentials } from "../auth/authSlice";
 
 const baseQuery = fetchBaseQuery({

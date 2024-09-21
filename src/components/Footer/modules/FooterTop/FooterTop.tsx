@@ -15,13 +15,13 @@ const FooterTop = () => {
                   placeholder="Email address"
                   id="footer-email-signup"
                />
-               <img src="icons/mail.svg" alt="Signup" />
+               <img src="/icons/mail.svg" alt="Signup" />
                <button>Sign up</button>
             </div>
          </div>
          <img
             className={classes.footer__banner}
-            src="images/Footer/banner.png"
+            src="/images/Footer/banner.png"
             alt="Join Our Newsletter"
          />
       </div>

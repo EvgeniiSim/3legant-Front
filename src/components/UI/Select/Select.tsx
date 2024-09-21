@@ -41,7 +41,7 @@ const Select = ({ children, open, setOpen, error, setError }: SelectProps) => {
                onClick={() => setOpen((prev) => !prev)}>
                <span>{selectedValue ? selectedValue : children}</span>
                <img
-                  src="icons/select/arrow.svg"
+                  src="/icons/select/arrow.svg"
                   alt="Выберите инструмент"
                   className={arrowClasses}
                />

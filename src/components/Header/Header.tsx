@@ -29,7 +29,7 @@ const Header = () => {
                   {isTablet ? (
                      <>
                         <img
-                           src="icons/burger.svg"
+                           src="/icons/burger.svg"
                            alt="Меню"
                            id="menu"
                            onClick={() => setOpen(true)}
@@ -58,13 +58,13 @@ const Header = () => {
                <div className={classes.header__buttons}>
                   {isTablet ? null : (
                      <div className={classes.header__buttons_search}>
-                        <img src="icons/search.svg" alt="Поиск" />
+                        <img src="/icons/search.svg" alt="Поиск" />
                      </div>
                   )}
                   <Profile />
                   {!isUnauthorized && (
                      <div className={classes.header__buttons_bag}>
-                        <img src="icons/bag.svg" alt="Корзина" />
+                        <img src="/icons/bag.svg" alt="Корзина" />
                         <span>2</span>
                      </div>
                   )}

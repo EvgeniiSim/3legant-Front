@@ -13,7 +13,16 @@ interface InputsTypes {
 }
 
 const Input: InputsTypes = {
-   Text: ({ placeholder, onChange, value, isError, errorText, autoFocus }) => (
+   Text: ({
+      placeholder,
+      onChange,
+      value,
+      isError,
+      errorText,
+      autoFocus,
+      bordered,
+      label
+   }) => (
       <Text
          placeholder={placeholder}
          value={value}
@@ -21,6 +30,8 @@ const Input: InputsTypes = {
          onChange={onChange}
          isError={isError}
          errorText={errorText}
+         bordered={bordered}
+         label={label}
       />
    ),
    Password: ({

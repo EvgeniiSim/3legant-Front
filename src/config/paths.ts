@@ -1,6 +1,10 @@
 export enum Paths {
+   HOME = "/",
    SIGNIN = "/auth/signin",
    SIGNUP = "/auth/signup",
-   HOME = "/",
-   PROFILE = "/profile",
+   ACCOUNT = "/account",
+   ADDRESS = "/account/address",
+   ORDERS = "/account/orders",
+   WHISHLIST = "/account/wishlist",
+   NOT_AUTH = "/not-auth",
 }

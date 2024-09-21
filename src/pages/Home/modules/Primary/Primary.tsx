@@ -29,19 +29,19 @@ const Primary = () => {
                      keyboard>
                      <SwiperSlide className={classes.swiper__slide}>
                         <img
-                           src="images/Home/Primary/slide-1.jpeg"
+                           src="/images/Home/Primary/slide-1.jpeg"
                            alt="Картинка"
                         />
                      </SwiperSlide>
                      <SwiperSlide className={classes.swiper__slide}>
                         <img
-                           src="images/Home/Primary/slide-2.jpeg"
+                           src="/images/Home/Primary/slide-2.jpeg"
                            alt="Картинка"
                         />
                      </SwiperSlide>
                      <SwiperSlide className={classes.swiper__slide}>
                         <img
-                           src="images/Home/Primary/slide-3.jpeg"
+                           src="/images/Home/Primary/slide-3.jpeg"
                            alt="Картинка"
                         />
                      </SwiperSlide>

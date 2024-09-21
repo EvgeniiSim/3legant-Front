@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-import { ACCESS_TOKEN, PERSIST } from "../../config/app";
+import { ACCESS_TOKEN, PERSIST } from "../../config/constants/index";
 
 interface InitialState {
    accessToken: string | null;

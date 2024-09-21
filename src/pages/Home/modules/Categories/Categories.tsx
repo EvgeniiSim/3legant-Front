@@ -9,7 +9,7 @@ const Categories = () => {
             <div className={classes.categories__inner}>
                <div className={classes.card}>
                   <img
-                     src="images/Home/Categories/category-2.jpg"
+                     src="/images/Home/Categories/category-2.jpg"
                      alt="Джинсы"
                      className={classes.card__img}
                   />
@@ -20,7 +20,7 @@ const Categories = () => {
                </div>
                <div className={classes.card}>
                   <img
-                     src="images/Home/Categories/category-1.jpeg"
+                     src="/images/Home/Categories/category-1.jpeg"
                      alt="Крассоки"
                      className={classes.card__img}
                   />
@@ -31,7 +31,7 @@ const Categories = () => {
                </div>
                <div className={classes.card}>
                   <img
-                     src="images/Home/Categories/category-3.jpg"
+                     src="/images/Home/Categories/category-3.jpg"
                      alt="Худи"
                      className={classes.card__img}
                   />

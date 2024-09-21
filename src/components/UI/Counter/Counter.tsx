@@ -14,13 +14,13 @@ const Counter = ({ amount, setAmount, className }: CounterProps) => {
          <div
             className={clases.counter__minus}
             onClick={() => setAmount((prev) => prev - 1)}>
-            <img src="icons/counter/minus.svg" alt="Убрать" />
+            <img src="/icons/counter/minus.svg" alt="Убрать" />
          </div>
          {amount}
          <div
             className={clases.counter__plus}
             onClick={() => setAmount((prev) => prev + 1)}>
-            <img src="icons/counter/plus.svg" alt="Добавить" />
+            <img src="/icons/counter/plus.svg" alt="Добавить" />
          </div>
       </div>
    );

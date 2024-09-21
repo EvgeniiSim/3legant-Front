@@ -37,15 +37,15 @@ const FooterBottom = () => {
                   </div>
                   <div className={classes.bottom__social}>
                      <img
-                        src="icons/socials/instagram-white.svg"
+                        src="/icons/socials/instagram-white.svg"
                         alt="Instagram"
                      />
                      <img
-                        src="icons/socials/facebook-white.svg"
+                        src="/icons/socials/facebook-white.svg"
                         alt="Instagram"
                      />
                      <img
-                        src="icons/socials/youtube-white.svg"
+                        src="/icons/socials/youtube-white.svg"
                         alt="Instagram"
                      />
                   </div>

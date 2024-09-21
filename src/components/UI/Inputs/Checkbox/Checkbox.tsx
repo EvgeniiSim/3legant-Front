@@ -1,6 +1,5 @@
 import { Dispatch, ReactNode } from "react";
 
-import check from "../../../../../public/icons/inputs/check.svg";
 
 import classes from "./Checkbox.module.scss";
 import classNames from "classnames/bind";
@@ -29,7 +28,7 @@ const Checkbox = ({
    return (
       <div className={classes.checkbox}>
          <label className={labelClasses} htmlFor={id}>
-            <img src={check} alt={name} />
+            <img src={"/icons/inputs/check.svg"} alt={name} />
          </label>
          <span className={classes.checkbox__text}>{children}</span>
          <input

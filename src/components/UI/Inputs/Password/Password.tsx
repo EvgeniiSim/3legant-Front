@@ -1,7 +1,5 @@
 import { ChangeEvent, useState } from "react";
 
-import showPwdIcon from "../../../../../public/icons/inputs/showPwd.svg";
-
 import styles from "./Password.module.scss";
 
 export interface PasswordProps {
@@ -36,7 +34,7 @@ const Password = ({
             className={styles.input__show}
             onClick={() => setShowPwd(!showPwd)}>
             {showPwd && <span></span>}
-            <img src={showPwdIcon} alt="Показать/Скрыть" />
+            <img src={"/icons/inputs/showPwd.svg"} alt="Показать/Скрыть" />
          </div>
          {isError && <span className={styles.input__error}>{errorText}</span>}
       </div>

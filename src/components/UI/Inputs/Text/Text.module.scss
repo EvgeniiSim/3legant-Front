@@ -1,17 +1,33 @@
 @import '/src/index.scss';
 
 .wrap {
-   position: relative;
-   padding-bottom: em(14);
-   border-bottom: em(1) solid $Neutral4;
+   display: flex;
+   flex-direction: column;
+   gap: em(10);
+}
 
+.label {
+   font-size: $Hairline2;
+   font-weight: 700;
+   color: $Neutral4;
+   text-transform: uppercase;
 }
 
 .input {
    font-size: $Body2;
    background-color: transparent;
    line-height: 1.2;
+
+   padding-bottom: em(14);
+   border-bottom: em(1) solid $Neutral4;
    width: 100%;
+
+   &._bordered {
+      border: em(1) solid #CBCBCB;
+      border-radius: em(6);
+
+      padding: em(7) em(16);
+   }
 
    &__error {
       position: absolute;

@@ -77,6 +77,13 @@ const UI = () => {
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="test"
          />
+         <Input.Text
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="test bordered"
+            bordered={true}
+            label="test"
+         />
          <Input.Password
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}

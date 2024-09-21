@@ -15,7 +15,7 @@ const CustomLink = ({ children, to, className }: LinkProps) => {
          to={to}
          className={`${classes.link} ${className ? className : ""}`}>
          {children}
-         <img src="icons/link/arrow.svg" alt={children} />
+         <img src="/icons/link/arrow.svg" alt={children} />
       </NavLink>
    );
 };

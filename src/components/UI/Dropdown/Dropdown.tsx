@@ -29,7 +29,7 @@ const Dropdown = ({
             className={classes.dropdown__header}
             onClick={() => setOpen((prev) => !prev)}>
             {label}
-            <img src="icons/dropdown/arrow.svg" alt="Показать/Скрыть" />
+            <img src="/icons/dropdown/arrow.svg" alt="Показать/Скрыть" />
          </div>
          <div className={classes.dropdown__body}>
             <div>{children}</div>

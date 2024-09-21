@@ -16,7 +16,7 @@ const Profile = () => {
             <div className={cn("header__buttons_profile", "_unauthorized")}>
                <img
                   onClick={() => navigate(Paths.SIGNIN)}
-                  src="icons/user.svg"
+                  src="/icons/user.svg"
                   alt="Профиль"
                />
                <div className={cn("header__buttons_profile-popup")}>
@@ -27,8 +27,8 @@ const Profile = () => {
             </div>
          ) : (
             <img
-               onClick={() => navigate(Paths.PROFILE)}
-               src="icons/user.svg"
+               onClick={() => navigate(Paths.ACCOUNT)}
+               src="/icons/user.svg"
                alt="Профиль"
             />
          )}

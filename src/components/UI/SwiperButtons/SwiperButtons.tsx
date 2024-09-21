@@ -10,12 +10,12 @@ const SwiperButtons: FC<{ className?: ReactNode }> = ({ className }) => {
          <div
             className={`${classes.button} ${classes._next}`}
             onClick={() => swiper.slidePrev()}>
-            <img src="icons/swiper-buttons/arrow.svg" alt="Назад" />
+            <img src="/icons/swiper-buttons/arrow.svg" alt="Назад" />
          </div>
          <div
             className={`${classes.button} ${classes._prev}`}
             onClick={() => swiper.slideNext()}>
-            <img src="icons/swiper-buttons/arrow.svg" alt="Вперед" />
+            <img src="/icons/swiper-buttons/arrow.svg" alt="Вперед" />
          </div>
       </div>
    );
