@@ -87,4 +87,8 @@
    margin-bottom: em(24, 32);
 }
 
-.account {}
+.content {
+   display: flex;
+   flex-direction: column;
+   gap: em(20);
+}

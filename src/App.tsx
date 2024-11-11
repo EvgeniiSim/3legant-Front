@@ -24,6 +24,8 @@ const LogIn = lazy(() => import("./pages/Auth/modules/LogIn"));
 const Confirm = lazy(() => import("./pages/Auth/modules/Confirm"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 const Profile = lazy(() => import("./pages/Profile/Profile"));
+const Products = lazy(() => import("./pages/Products"));
+const Product = lazy(() => import("./pages/Products/Product"));
 
 const router = createBrowserRouter(
    createRoutesFromElements(
@@ -39,6 +41,11 @@ const router = createBrowserRouter(
                      <Route path="orders" element={<Orders />} />
                      <Route path="wishlist" element={<Whishlist />} />
                   </Route>
+               </Route>
+
+               <Route path="products">
+                  <Route index element={<Products />} />
+                  <Route path=":id" element={<Product />} />
                </Route>
 
                <Route path="ui" element={<UI />} />

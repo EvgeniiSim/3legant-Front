@@ -8,14 +8,15 @@ import { setUser } from "./userSlice";
 const PrefetchUser = () => {
    const dispatch = useAppDispatch();
 
-   const { data, isSuccess } = useGetUserInfoQuery(undefined);
+   const { data: userData, isSuccess: isUserSuccess } =
+      useGetUserInfoQuery(undefined);
 
    useEffect(() => {
-      if (isSuccess && data) {
-         dispatch(setUser(data));
+      if (isUserSuccess && userData) {
+         dispatch(setUser(userData));
       }
-   }, [isSuccess, data]);
+   }, [isUserSuccess, userData]);
 
-   return <Outlet />;
+   if (isUserSuccess) return <Outlet />;
 };
 export default PrefetchUser;

@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 interface ButtonProps {
    children: string;
-   raduis: "md" | "sm";
+   raduis?: "md" | "sm";
    className?: ReactNode;
    onClick?: () => void;
    disabled?: boolean;
@@ -14,7 +14,7 @@ const cx = classNames.bind(classes);
 
 const Button = ({
    children,
-   raduis,
+   raduis = "md",
    className,
    onClick,
    disabled,

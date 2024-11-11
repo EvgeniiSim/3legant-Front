@@ -34,12 +34,13 @@ const baseQueryWithReauth: BaseQueryFn<
    let result = await baseQuery(args, api, extraOptions);
    if (result.error && result.error.status === 401) {
       // try to get a new token
-      const response = await api.dispatch(
-         apiSlice.endpoints.refresh.initiate(undefined)
-      );
+      const response = await baseQuery("/auth/refresh", api, extraOptions);
+
       if (response.data) {
+         const data = response.data as { accessToken: string };
+
          // store the new token
-         api.dispatch(setCredentials(response.data.accessToken));
+         api.dispatch(setCredentials(data.accessToken));
          // retry the initial query
          result = await baseQuery(args, api, extraOptions);
       } else {

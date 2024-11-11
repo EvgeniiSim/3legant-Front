@@ -1,0 +1,8 @@
+@import '/src/index.scss';
+
+.products {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(em(200), 1fr));
+   gap: em(20);
+
+}

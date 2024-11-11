@@ -7,29 +7,44 @@ const cn = classNames.bind(styles);
 
 import { Paths } from "../../config/paths";
 
-import { useAppDispatch } from "../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { useLogoutMutation } from "../../store/auth/authApiSlice";
 import { logOut as logOutInState } from "../../store/auth/authSlice";
 import { AccountMenuItems } from "../../config/constants";
+import {
+   useLazyGetAvatarQuery,
+   useSaveAvatarMutation,
+} from "../../store/user/userApiSlice";
 
 const Profile = () => {
    const { pathname } = useLocation();
    const navigate = useNavigate();
    const dispatch = useAppDispatch();
 
+   const user = useAppSelector((state) => state.user);
+
+   const [getAvataQuery] = useLazyGetAvatarQuery();
+
+   const [saveAvatar] = useSaveAvatarMutation();
+
    const [logoutApiCall, result] = useLogoutMutation(undefined);
 
    const photoRef = useRef<HTMLInputElement>(null);
    const [phtotoBlob, setPhtotoBlob] = useState("");
 
-   // Конвертация в blob url
-   const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+   // Конвертация в blob url и сохранение аватара на бэке
+   const onFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
       const { files } = e.target;
 
       if (files?.length) {
          const photo = files[0];
          const blob = URL.createObjectURL(photo);
          setPhtotoBlob(blob);
+
+         const formData = new FormData();
+         formData.append("photo", photo);
+
+         await saveAvatar(formData);
       }
    };
 
@@ -43,6 +58,7 @@ const Profile = () => {
    const logOut = async () => {
       try {
          await logoutApiCall(undefined);
+         navigate(Paths.HOME);
          dispatch(logOutInState());
       } catch (err) {
          console.log(err);
@@ -63,6 +79,19 @@ const Profile = () => {
          navigate(Paths.HOME);
       }
    }, [result.isSuccess]);
+
+   // Getting user's avatar
+   useEffect(() => {
+      const getAvatar = async (avatar: string) => {
+         const file = await getAvataQuery(avatar).unwrap();
+         const blob = URL.createObjectURL(file);
+         setPhtotoBlob(blob);
+      };
+
+      if (user.avatar) {
+         getAvatar(user.avatar);
+      }
+   }, [user.avatar]);
 
    return (
       <div className={cn("profile")}>

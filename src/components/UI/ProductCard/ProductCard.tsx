@@ -1,9 +1,14 @@
 import Button from "../Button/Button";
 
 import classes from "./ProductCard.module.scss";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Counter from "../Counter/Counter";
 import { Product } from "../../../types/ProductsTypes";
+import { useAppSelector } from "../../../hooks/reduxHooks";
+import {
+   useAddToFavoriteMutation,
+   useRemoveFromFavoriteMutation,
+} from "../../../store/favorite/favoriteApiSlice";
 
 interface ProductProps {
    product: Product;
@@ -12,6 +17,14 @@ interface ProductProps {
 
 const ProductCard = ({ product, className }: ProductProps) => {
    const [amount, setAmount] = useState(0);
+   const [isFavorite, setIsFavorite] = useState(false);
+
+   const userFavorites = useAppSelector((state) => state.user.favorite);
+
+   const [addFavorite, { isSuccess: isAddSuccess }] =
+      useAddToFavoriteMutation();
+   const [removeFavorite, { isSuccess: isRemoveSuccess }] =
+      useRemoveFromFavoriteMutation();
 
    const stars = () => {
       const starsArr = [];
@@ -24,13 +37,47 @@ const ProductCard = ({ product, className }: ProductProps) => {
       return starsArr;
    };
 
+   useEffect(() => {
+      if (userFavorites.includes(product._id)) {
+         setIsFavorite(true);
+      }
+   }, []);
+
+   const onFavoriteChange = async (type: "add" | "remove") => {
+      if (type === "add") {
+         const response = await addFavorite(product._id);
+
+         if (!response.error) {
+            setIsFavorite(true);
+         }
+      }
+
+      if (type === "remove") {
+         const response = await removeFavorite(product._id);
+
+         if (!response.error) {
+            setIsFavorite(false);
+         }
+      }
+   };
+
    return (
       <div className={`${classes.card} ${className}`}>
          <div className={classes.card__top}>
             <img src={product.images[0]} alt="Название товара" />
-            <div className={classes.card__addToFavorites}>
-               <img src="/icons/unliked.svg" alt="Добавить в избранное" />
-            </div>
+            {isFavorite ? (
+               <div
+                  onClick={() => onFavoriteChange("remove")}
+                  className={classes.card__addToFavorites}>
+                  <img src="/icons/liked.svg" alt="Добавить в избранное" />
+               </div>
+            ) : (
+               <div
+                  onClick={() => onFavoriteChange("add")}
+                  className={classes.card__addToFavorites}>
+                  <img src="/icons/unliked.svg" alt="Добавить в избранное" />
+               </div>
+            )}
             <div className={classes.card__tags}>
                {!!product.discount && (
                   <div className={classes.card__discount}>
@@ -42,11 +89,15 @@ const ProductCard = ({ product, className }: ProductProps) => {
          </div>
          <div className={classes.card__bottom}>
             {amount ? (
-               <Counter amount={amount} setAmount={setAmount} />
+               <Counter
+                  amount={amount}
+                  onAdd={() => setAmount((prev) => prev + 1)}
+                  onRemove={() => setAmount((prev) => prev - 1)}
+               />
             ) : (
                <Button
                   raduis="sm"
-                  onClick={() => setAmount(1)}
+                  onClick={() => setAmount((prev) => prev + 1)}
                   className={classes.card__button}>
                   Add to cart
                </Button>

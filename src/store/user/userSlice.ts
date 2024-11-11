@@ -4,6 +4,8 @@ import { IUser } from "./model";
 const initialState: IUser = {
    name: "",
    email: "",
+   favorite: [],
+   basket: {},
 };
 
 const userSlice = createSlice({
@@ -11,9 +13,15 @@ const userSlice = createSlice({
    initialState,
    reducers: {
       setUser: (state, action: PayloadAction<IUser>) => {
-         const { name, email } = action.payload;
+         const { name, email, avatar, favorite, basket } = action.payload;
          state.email = email;
          state.name = name;
+         state.favorite = favorite;
+         state.basket = basket;
+
+         if (avatar) {
+            state.avatar = avatar;
+         }
       },
    },
 });
